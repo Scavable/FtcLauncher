@@ -11,6 +11,7 @@ public class Instance {
     private String instanceLocation;
     private String description;
     private String downloadLocation;
+    private boolean installed;
 
     public String getPackVersion() {
         return packVersion;
@@ -71,8 +72,6 @@ public class Instance {
     public void setInstalled(boolean installed) {
         this.installed = installed;
     }
-
-    public boolean installed = false;
 
     public Instance(String name, String title, String version, String description, String downloadLocation) {
         this.name = name;

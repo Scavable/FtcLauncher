@@ -14,35 +14,19 @@ public class FTCEnum {
     }
 
     public enum Info {
-        MAINTITLE, INSTALLTITLE, CURSEBASEAPI, CURESEAPIKEY, NEWSURL, PACKAGELISTURL, SELFUPDATEURL, PACKAGEURL;
+        MAINTITLE, BROWSETITLE, CURSEBASEAPI, CURESEAPIKEY, NEWSURL, PACKAGELISTURL, SELFUPDATEURL, PACKAGEURL;
 
         public String getString(){
-            switch(this){
-                case MAINTITLE:
-                    return "MainTitle";
-
-                case INSTALLTITLE:
-                    return "InstallTitle";
-
-                case CURSEBASEAPI:
-                    return "cursebaseapi";
-
-                case CURESEAPIKEY:
-                    return "cureseapikey";
-
-                case NEWSURL:
-                    return "newsUrl";
-
-                case PACKAGELISTURL:
-                    return "packageListUrl";
-
-                case PACKAGEURL:
-                    return "packageUrl";
-
-                case SELFUPDATEURL:
-                    return "selfUpdateUrl";
-            }
-            return null;
+            return switch (this) {
+                case MAINTITLE -> "MainTitle";
+                case BROWSETITLE -> "BrowseTitle";
+                case CURSEBASEAPI -> "cursebaseapi";
+                case CURESEAPIKEY -> "cureseapikey";
+                case NEWSURL -> "newsUrl";
+                case PACKAGELISTURL -> "packageListUrl";
+                case PACKAGEURL -> "packageUrl";
+                case SELFUPDATEURL -> "selfUpdateUrl";
+            };
         }
     }
 

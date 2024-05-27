@@ -15,7 +15,7 @@ public class InstallWindow {
 
         Scene scene = new Scene(searchBox);
         stage.setScene(scene);
-        stage.setTitle(LauncherWindow.getProperties().getProperty(FTCEnum.Info.INSTALLTITLE.getString()));
+        stage.setTitle(LauncherWindow.getProperties().getProperty(FTCEnum.Info.BROWSETITLE.getString()));
         stage.show();
     }
 }
