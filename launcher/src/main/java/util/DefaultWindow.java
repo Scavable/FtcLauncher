@@ -1,19 +1,18 @@
 package util;
 
 import javafx.stage.Stage;
-import window.LauncherWindow;
 
-import java.util.Map;
+import java.util.Properties;
 
 public class DefaultWindow {
     public Stage getStage(){
         Stage stage = new Stage();
-        Map<String, Double> screenProperties = LauncherWindow.screenProperties();
+        Properties screenProperties = FTCEnum.screenProperties;
 
-        stage.setX(screenProperties.get("x"));
-        stage.setY(screenProperties.get("y"));
-        stage.setWidth(screenProperties.get("width"));
-        stage.setHeight(screenProperties.get("height"));
+        stage.setX((double)screenProperties.get(FTCEnum.ScreenInfo.X.getScreenString())/2);
+        stage.setY((double)screenProperties.get(FTCEnum.ScreenInfo.Y.getScreenString())/2);
+        stage.setWidth((double)screenProperties.get(FTCEnum.ScreenInfo.WIDTH.getScreenString())/2);
+        stage.setHeight((double)screenProperties.get(FTCEnum.ScreenInfo.HEIGHT.getScreenString())/2);
 
         return stage;
     }

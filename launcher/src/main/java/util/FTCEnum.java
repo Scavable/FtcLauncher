@@ -1,22 +1,31 @@
 package util;
 
+import java.awt.*;
 import java.io.IOException;
 import java.util.Properties;
 
 public class FTCEnum {
-    public static Properties properties = new Properties();
+    public static Properties launcherProperties = new Properties();
+    public static Properties screenProperties = new Properties();
     public static void loadProperties(){
+
+        GraphicsDevice graphicsDevice = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+        screenProperties.put("Width", graphicsDevice.getDefaultConfiguration().getBounds().getWidth());
+        screenProperties.put("Height", graphicsDevice.getDefaultConfiguration().getBounds().getHeight());
+        screenProperties.put("X", graphicsDevice.getDefaultConfiguration().getBounds().getCenterX());
+        screenProperties.put("Y", graphicsDevice.getDefaultConfiguration().getBounds().getCenterY());
+
         try {
-            properties.load(FTCEnum.class.getClassLoader().getResourceAsStream("launcher.properties"));
+            launcherProperties.load(FTCEnum.class.getClassLoader().getResourceAsStream("launcher.properties"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public enum Info {
+    public enum LauncherInfo {
         MAINTITLE, BROWSETITLE, CURSEBASEAPI, CURESEAPIKEY, NEWSURL, PACKAGELISTURL, SELFUPDATEURL, PACKAGEURL;
 
-        public String getString(){
+        public String getLauncherString(){
             return switch (this) {
                 case MAINTITLE -> "MainTitle";
                 case BROWSETITLE -> "BrowseTitle";
@@ -30,5 +39,17 @@ public class FTCEnum {
         }
     }
 
+    public enum ScreenInfo {
+        WIDTH, HEIGHT, X, Y;
+
+        public String getScreenString(){
+            return switch (this) {
+                case WIDTH -> "Width";
+                case HEIGHT -> "Height";
+                case X -> "X";
+                case Y -> "Y";
+            };
+        }
+        }
 
 }

@@ -1,6 +1,6 @@
 package window.components.actions;
 
-import Install.InstallWindow;
+import Install.BrowseWindow;
 import Install.ftc.Download;
 import instance.Instance;
 import javafx.event.ActionEvent;
@@ -29,7 +29,7 @@ public class Actions {
 
     public static EventHandler<ActionEvent> browseButtonAction() {
         return event -> {
-            new InstallWindow();
+            new BrowseWindow();
         };
     }
 

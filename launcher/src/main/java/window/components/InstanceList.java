@@ -3,6 +3,7 @@ package window.components;
 import Install.ftc.Pack;
 import instance.Instance;
 import javafx.scene.control.ListView;
+import util.FTCEnum;
 
 import java.util.List;
 import java.util.Map;
@@ -17,8 +18,9 @@ public final class InstanceList {
         }
     }
 
-    public ListView<Instance> instanceListView(Map<String, Double> screenProperties) {
-        instancesListView.setPrefSize(screenProperties.get("width")/2, screenProperties.get("height"));
+    public ListView<Instance> instanceListView() {
+        instancesListView.setPrefSize((double)FTCEnum.screenProperties.get(FTCEnum.ScreenInfo.WIDTH.getScreenString())/2,
+                (double)FTCEnum.screenProperties.get(FTCEnum.ScreenInfo.HEIGHT.getScreenString())/2);
 
         return instancesListView;
     }

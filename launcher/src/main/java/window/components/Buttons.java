@@ -1,14 +1,9 @@
 package window.components;
 
-import Install.InstallWindow;
-import Install.ftc.Download;
-import instance.Instance;
 import javafx.scene.control.Button;
-import window.LauncherWindow;
+import util.FTCEnum;
 import window.components.actions.Actions;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
 import java.util.Map;
 
 public final class Buttons {
@@ -21,11 +16,9 @@ public final class Buttons {
     private Button patreonButton = new Button("Patreon");
     private Button websiteButton = new Button("Website");
 
-    private Map<String, Double> screenProperties;
     private InstanceList instanceList;
 
-    public Buttons(Map<String, Double> screenProperties, InstanceList instanceList){
-        this.screenProperties = screenProperties;
+    public Buttons(InstanceList instanceList){
         this.instanceList = instanceList;
 
         installButtonInit();
@@ -53,12 +46,14 @@ public final class Buttons {
     }
 
     private void browseButtonInit() {
-        browseButton.setPrefSize(screenProperties.get("width")/7, screenProperties.get("height")/5);
+        browseButton.setPrefSize((double)FTCEnum.screenProperties.get(FTCEnum.ScreenInfo.WIDTH.getScreenString())/7,
+                (double)FTCEnum.screenProperties.get(FTCEnum.ScreenInfo.HEIGHT.getScreenString())/5);
         browseButton.setOnAction(Actions.browseButtonAction());
     }
 
     private void installButtonInit() {
-        installButton.setPrefSize(screenProperties.get("width")/7, screenProperties.get("height")/5);
+        installButton.setPrefSize((double)FTCEnum.screenProperties.get(FTCEnum.ScreenInfo.WIDTH.getScreenString())/7,
+                (double)FTCEnum.screenProperties.get(FTCEnum.ScreenInfo.HEIGHT.getScreenString())/5);
         installButton.setOnAction(Actions.installButtonAction(instanceList));
     }
 

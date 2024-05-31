@@ -20,7 +20,7 @@ public class PacksURL {
     List<Pack> packages = new ArrayList<>();
 
     public PacksURL() throws IOException, URISyntaxException {
-        InputStream in = new URL(LauncherWindow.getProperties().getProperty(FTCEnum.Info.PACKAGELISTURL.getString())).openStream();
+        InputStream in = new URL(LauncherWindow.getProperties().getProperty(FTCEnum.LauncherInfo.PACKAGELISTURL.getLauncherString())).openStream();
         String fileLocation = getClass().getClassLoader().getResource("").toString().concat("temp.txt").substring(6);
         Path target = Paths.get(fileLocation);
         Files.copy(in, target, StandardCopyOption.REPLACE_EXISTING);

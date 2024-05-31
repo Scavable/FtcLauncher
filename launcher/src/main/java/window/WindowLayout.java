@@ -1,27 +1,21 @@
 package window;
 
-import Install.InstallWindow;
-import Install.ftc.Download;
-import instance.Instance;
 import javafx.geometry.Insets;
-import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.web.WebView;
+import util.FTCEnum;
 import window.components.Buttons;
 import window.components.InstanceList;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
 import java.util.Map;
+import java.util.Properties;
 
 public final class WindowLayout {
-    static Map<String, Double> screenProperties;
     InstanceList instanceList;
 
-    WindowLayout(InstanceList instanceList, Map<String, Double> screenProperties){
+    WindowLayout(InstanceList instanceList){
         this.instanceList = instanceList;
-        WindowLayout.screenProperties = screenProperties;
     }
 
     public GridPane layout(){
@@ -37,7 +31,8 @@ public final class WindowLayout {
     private WebView WebViewLayout() {
         WebView webView = new WebView();
         webView.getEngine().load(String.valueOf(getClass().getClassLoader().getResource("./index.html")));
-        webView.setPrefSize(screenProperties.get("width"), screenProperties.get("height"));
+        webView.setPrefSize((double)FTCEnum.screenProperties.get(FTCEnum.ScreenInfo.WIDTH.getScreenString())/1.5,
+                (double)FTCEnum.screenProperties.get(FTCEnum.ScreenInfo.HEIGHT.getScreenString()));
         return webView;
     }
 
@@ -47,9 +42,9 @@ public final class WindowLayout {
         vbox.setSpacing(10);
         vbox.setPadding(new Insets(10, 10, 10, 10));
 
-        Buttons buttons = new Buttons(screenProperties, instanceList);
+        Buttons buttons = new Buttons(instanceList);
 
-        vbox.getChildren().addAll(instanceList.instanceListView(screenProperties), buttons.getBrowseButton(), buttons.getInstallButton());
+        vbox.getChildren().addAll(instanceList.instanceListView(), buttons.getBrowseButton(), buttons.getInstallButton());
 
         return vbox;
     }
