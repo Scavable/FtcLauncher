@@ -2,10 +2,12 @@ plugins {
     id("java")
     id("application")
     id("org.openjfx.javafxplugin") version "0.1.0"
+
 }
 
 group = "com.scavable"
 version = "0.1-alpha"
+
 
 repositories {
     mavenCentral()
@@ -18,14 +20,27 @@ dependencies {
 
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
-}
 
-javafx {
-    version = "22.0.1"
-    modules = listOf("javafx.controls", "javafx.fxml", "javafx.swing", "javafx.web", "javafx.graphics", "javafx.media")
+    javafx {
+        version = "22.0.1"
+        modules = listOf(
+            "javafx.graphics",
+            "javafx.controls",
+            "javafx.fxml",
+            "javafx.swing",
+            "javafx.web",
+            "javafx.media"
+        )
+        sourceSets
+    }
 }
 
 tasks.test {
     useJUnitPlatform()
 }
 
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(21))
+    }
+}

@@ -14,8 +14,8 @@ import java.util.Properties;
 
 public final class LauncherWindow extends Application {
 
-    static Properties properties;
-    InstanceList instanceList;
+    private static Properties properties;
+    private InstanceList instanceList;
 
     @Override
     public void start(Stage stage) {

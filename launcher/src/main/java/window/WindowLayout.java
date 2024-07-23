@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.Properties;
 
 public final class WindowLayout {
-    InstanceList instanceList;
+    private final InstanceList instanceList;
 
     WindowLayout(InstanceList instanceList){
         this.instanceList = instanceList;
