@@ -7,9 +7,7 @@ public class Pack {
     private String priority;
     private String location;
 
-    Pack(){
-
-    }
+    private Pack(){}
 
     public String getName() {
         return name;

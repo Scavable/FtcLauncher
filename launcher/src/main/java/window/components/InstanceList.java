@@ -7,6 +7,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.collections.ListChangeListener;
 import javafx.scene.control.ListView;
 import util.FTCEnum;
+import window.WindowLayout;
 
 import java.util.List;
 import java.util.Map;
@@ -29,12 +30,11 @@ public final class InstanceList {
                 instancesListView.setDisable(true);
                 new InstancePopupMenu(0, 0, instancesListView, instancesListView.getSelectionModel().getSelectedItem());
             }
-
         });
     }
 
     public ListView<Instance> instanceListView() {
-        instancesListView.setPrefSize((double) screenProperties.get(FTCEnum.ScreenInfo.WIDTH.getScreenString())/2,
+        instancesListView.setPrefSize((double) screenProperties.get(FTCEnum.ScreenInfo.WIDTH.getScreenString())/3,
                 (double) screenProperties.get(FTCEnum.ScreenInfo.HEIGHT.getScreenString())/2);
 
         return instancesListView;

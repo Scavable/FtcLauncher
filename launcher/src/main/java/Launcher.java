@@ -8,14 +8,6 @@ public final class Launcher {
 
         FTCEnum.loadProperties();
 
-        LauncherWindow.setProperties(FTCEnum.launcherProperties);
-
-        String workingDir = System.getProperty("user.dir");
-        File file = new File(workingDir.concat("/Instances"));
-        if(!file.exists()){
-            file.mkdir();
-        }
-
         LauncherWindow.launch(LauncherWindow.class, args);
     }
 }

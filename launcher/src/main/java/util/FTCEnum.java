@@ -4,9 +4,10 @@ import java.awt.*;
 import java.io.IOException;
 import java.util.Properties;
 
-public class FTCEnum {
+public final class FTCEnum {
     public static Properties launcherProperties = new Properties();
     public static Properties screenProperties = new Properties();
+
     public static void loadProperties(){
 
         GraphicsDevice graphicsDevice = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
